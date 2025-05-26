@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaHome,
   FaFolderOpen,
@@ -7,46 +7,65 @@ import {
   FaTrophy,
   FaEnvelope,
 } from "react-icons/fa";
-const navLinks = [
-  {
-    name: "Home",
-    href: "#home",
-    icon: <FaHome className="mr-2" />,
-  },
-  {
-    name: "Projects",
-    href: "#projects",
-    icon: <FaFolderOpen className="mr-2" />,
-  },
-  {
-    name: "Resume",
-    href: "#resume",
-    icon: <FaFileAlt className="mr-2" />,
-  },
-  {
-    name: "Skills",
-    href: "#skills",
-    icon: <FaCogs className="mr-2" />,
-  },
-  {
-    name: "Achievements",
-    href: "#achievements",
-    icon: <FaTrophy className="mr-2" />,
-  },
-  {
-    name: "Contact",
-    href: "#contact",
-    icon: <FaEnvelope className="mr-2" />,
-  },
-];
+
 
 export default function Navbar() {
+  const navLinks = [
+    {
+      name: "Home",
+      href: "#home",
+      icon: <FaHome className="mr-2" />,
+    },
+    {
+      name: "Projects",
+      href: "#projects",
+      icon: <FaFolderOpen className="mr-2" />,
+    },
+    {
+      name: "Resume",
+      href: "#resume",
+      icon: <FaFileAlt className="mr-2" />,
+    },
+    {
+      name: "Skills",
+      href: "#skills",
+      icon: <FaCogs className="mr-2" />,
+    },
+    {
+      name: "Achievements",
+      href: "#achievements",
+      icon: <FaTrophy className="mr-2" />,
+    },
+    {
+      name: "Contact",
+      href: "#contact",
+      icon: <FaEnvelope className="mr-2" />,
+    },
+  ];
+
   const [active, setActive] = useState("Home");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (name) => setActive(name);
 
   return (
-    <nav className="navbar fixed top-0 left-0 w-full z-50 bg-transparent border-b border-fuchsia-400 shadow-lg">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${
+          scrolled
+            ? "bg-black/40 h-15 backdrop-blur-lg border-b border-fuchsia-400/40 shadow-lg"
+            : "bg-transparent h-16 border-b border-fuchsia-400/40 shadow-none"
+        }
+      `}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         <span className="text-fuchsia-400 font-bold text-2xl tracking-widest">
           TM
