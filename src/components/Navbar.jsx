@@ -13,32 +13,32 @@ export default function Navbar() {
   const navLinks = [
     {
       name: "Home",
-      href: "#home",
+      href: "/",
       icon: <FaHome className="mr-2" />,
     },
     {
       name: "Projects",
-      href: "#projects",
+      href: "/projects",
       icon: <FaFolderOpen className="mr-2" />,
     },
     {
       name: "Resume",
-      href: "#resume",
+      href: "/resume",
       icon: <FaFileAlt className="mr-2" />,
     },
     {
       name: "Skills",
-      href: "#skills",
+      href: "/skills",
       icon: <FaCogs className="mr-2" />,
     },
     {
       name: "Achievements",
-      href: "#achievements",
+      href: "/achievements",
       icon: <FaTrophy className="mr-2" />,
     },
     {
       name: "Contact",
-      href: "#contact",
+      href: "/contact",
       icon: <FaEnvelope className="mr-2" />,
     },
   ];
@@ -67,9 +67,11 @@ export default function Navbar() {
       `}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-        <span className="text-fuchsia-400 font-bold text-2xl tracking-widest">
-          TM
-        </span>
+        <a href="/">
+          <span className="text-fuchsia-400 font-bold text-2xl tracking-widest">
+            TM
+          </span>
+        </a>
         <ul className="flex gap-4 md:gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
