@@ -1,4 +1,5 @@
 import TrackedLogo from "../assets/Projects/Tracked.png";
+import TrackBuddyLogo from "../assets/Projects/Trackbuddy.png"; // Placeholder for TrackBuddy logo
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Projects() {
@@ -16,6 +17,24 @@ export default function Projects() {
         "Express.js",
         "MongoDB",
         "Gemini API",
+        "Postman",
+        "Git",
+        "GitHub",
+        "VSCode",
+      ],
+    },
+    {
+      title: "TrackBuddy",
+      description:
+        "TrackBuddy, a Mobile App designed specifically for tracking college buses. A simple yet powerful tool that lets you stay updated on the whereabouts of buses in real time using Google MAPS API and also includes features like ticket booking using Razorpay API.",
+      imageUrl: TrackBuddyLogo,
+      demoLink:
+        "https://play.google.com/store/apps/details?id=com.trackbuddy.sece&pcampaignid=web_share",
+      tools: [
+        "Flutter",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
         "Postman",
         "Git",
         "GitHub",
